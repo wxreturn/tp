@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+    <h2>管理员信息统计表</h2>
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr><td>ID编号</td><td>用户名称</td><td>用户身份</td><td>用户密码</td></tr>
+        </thead>
+        <tbody>
+            {volist name='data' id='list'}
+            <tr>
+                <td>{$list.uid}</td>
+                <td>{$list.name}</td>
+                <td>
+                    {eq name="$list['name']" value="return"}
+                                                    管理员
+                    {else/}
+                                                    一般人员
+                    {/eq}
+                </td>
+                <td>{$list.password|strlen}</td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+</body>
+</html>
